@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="itemForm :: head">
+    </head>
+    <body>
+
+<div class="container">
+
+	<nav th:replace="itemForm :: nav"></nav>
+	
+	<div class='col-md-8'>
+	<div class='row' th:each="item : ${itemList}" 
+		style='margin-right: 0; margin-left: 0;'
+	>
+	
+		<div class='col-md-1 col-xs-1 text-center'>
+			<a 
+				th:if="${#strings.equals(item.creatorFbId, #authentication.name)}"
+				th:href="@{/item/{itemId}/modify(itemId=${item.id})}"
+			>
+			<span 
+				style='font-size: 1.5em;' 
+				class='glyphicon glyphicon-pencil'
+			>
+			</span>
+			</a>
+		</div>
+	
+		<div class='col-md-2 col-xs-2'
+			style="border-top: 1px dotted gray; padding: 5px;">
+				
+			<a 
+				th:href="@{item/{itemId}/view(itemId=${item.id})}"
+				th:unless="${#strings.isEmpty(@imageUrlService.getUrl(item))}">
+
+			<img th:src="${@imageUrlService.getUrl(item)}" 
+				class="img-responsive center-block"
+				style="height: 75px;"
+			 />
+			 
+			 </a>
+
+			<p th:if="${#strings.isEmpty(@imageUrlService.getUrl(item))}"
+			>
+				<a 
+				th:href="@{item/{itemId}/view(itemId=${item.id})}">
+				<span class="glyphicon glyphicon-ban-circle" aria-hidden="true"
+					style="font-size: 2em;"></span>
+				</a>
+			</p>
+			
+			
+			
+		</div>
+
+		<div class='col-md-9 col-xs-8' style="border-top: 1px dotted gray;">
+			<p>
+				<a 
+				th:href="@{item/{itemId}/view(itemId=${item.id})}"
+				th:text="${item.itemName}"></a>
+			</p>
+		</div>
+
+	</div>
+	</div>
+        
+</div>
+
+
+	<script th:inline="javascript" >
+	
+	/*<![CDATA[*/
+		
+		
+		/*]]>*/
+		
+	</script>
+	<script async='true' defer='true'
+      	src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDha7l6IhMeZjlWxd3YXoQkGGzVShs37NQ&amp;callback=initMap'>
+    </script>
+    </body>
+</html>

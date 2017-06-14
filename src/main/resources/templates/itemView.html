@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="itemForm :: head"></head>
+    <body>
+
+<div class="container">
+
+	<nav th:replace="itemForm :: nav"></nav>
+	
+		<div id="fb-root"></div>
+		
+		<div class='row'>
+
+		<div class='col-md-11 col-xs-11'><strong>Tallennusajankohta</strong></div>
+		<div class='col-md-11  col-xs-11'><p th:text="${item.created}"></p></div>
+	
+		<div class='col-md-1 col-xs-1 pull-right'>
+			<a 
+				th:if="${#strings.equals(item.creatorFbId, #authentication.name)}"
+				th:href="@{/item/{itemId}/modify(itemId=${item.id})}"
+			>
+			<span 
+				style='font-size: 1.5em;' 
+				class='glyphicon glyphicon-pencil'
+			>
+			</span>
+			</a>
+		</div>
+
+		<div class='col-md-11 col-xs-11'><strong>Edellinen muokkaus</strong></div>
+		<div class='col-md-11 col-xs-11'><p th:text="${item.updated}"></p></div>
+
+
+		<div class='form-group col-md-10 col-xs-10'>
+		<input 	type="checkbox"
+				class='form-control'
+				id='type'
+				name='type'
+				data-toggle='toggle'
+				data-on='Kadonnut'
+				data-off='Löytynyt'
+				th:checked='${item.type}'
+				disabled='true'
+				/>
+		</div>
+
+
+		</div>
+
+		<div class='row'>
+		<div class='col-md-12'><strong>Lyhyt nimi</strong></div>
+		<div class='col-md-12' ><p th:text="${item.itemName}"></p></div>
+        
+		<div class='col-md-12'><strong>Esineen, löytöpaikan ja -tilanteen kuvaus</strong></div>
+		<div class='col-md-12' ><p th:text="${item.itemDescr}"></p></div>
+		
+		<div class='col-md-12'><strong>Yhteystieto</strong></div>
+		<div class='col-md-12' >
+			<p 
+				th:unless="${item.contactDetail != null && #strings.startsWith(item.contactDetail, 'https://facebook.com/')}"
+				th:text="${item.contactDetail}"></p>
+			<p 
+				th:if="${item.contactDetail != null && #strings.startsWith(item.contactDetail, 'https://facebook.com/')}"
+			>
+			<a 
+				th:href="${item.contactDetail}"
+				th:text="${item.contactDetail}"
+			></a></p>
+		</div>
+		</div>
+		
+		<div class='col-md-12'>
+			<div class='col-md-6' id='map' style='margin-top: 1em; margin-bottom: 1em;'>
+			</div>
+			<div class='col-md-6' >
+				<img 
+					th:unless="${#strings.isEmpty(@imageUrlService.getUrl(item))}" 
+					th:src="${@imageUrlService.getUrl(item)}"
+					class='img-responsive'
+					style='max-height: 18em;'
+				 />
+			</div>
+		</div>
+		
+		<div class="fb-comments" th:attr="data-href=@{https://pagylostandfound.kari.iki.fi/item/{itemId}/view(itemId=${item.id})}" data-numposts="5"></div>
+        
+</div>
+
+
+	<script th:inline="javascript" >
+	
+	/*<![CDATA[*/
+		
+		var map;
+		var markerLoc = { 
+				lat: /*[[${item.lat != 0.0} ? ${item.lat} : 60.259812]]*/ 60.259812, 
+				lng:  /*[[${item.lng} != 0.0 ? ${item.lng} : 24.804769]]*/ 24.804769 };
+		
+		var marker;
+		
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('map'),  {
+				center: markerLoc,
+				zoom: 15
+			});
+			marker = new google.maps.Marker({
+			    position: markerLoc,
+			    map: map
+		  	});
+			placeMarkerAndPanTo(markerLoc, map);
+		}
+		
+		function placeMarkerAndPanTo(latLng, map) {
+			marker.setPosition(latLng);	
+			map.panTo(latLng);
+		}
+		
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = '//connect.facebook.net/fi_FI/sdk.js#xfbml=1&version=v2.9&appId=[[${@environment.getProperty('security.oauth2.client.clientId')}]]';
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+
+
+		
+		/*]]>*/
+		
+	</script>
+	<script async='true' defer='true'
+      	src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDha7l6IhMeZjlWxd3YXoQkGGzVShs37NQ&amp;callback=initMap'>
+    </script>
+    </body>
+</html>
