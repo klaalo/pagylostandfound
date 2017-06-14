@@ -67,6 +67,9 @@ It's only safe to use cloud sql service if the traffic in between the server and
 
 Once you guide your Java Runtime Engine to use the truststore holding the certificate for the database server, the JRE doesn't trust any other service if it is not presented in the truststore. On resolution is to add the database service certificate to your cacerts.jks. I'm not so keen on this, but have heard that there might be a better solution in just placing trusted certificates in a directory and hashing them somwhow. Need to research this more. I'm quite sure internet has plenty of information on this.
 
+### Spring Security and Thymeleaf
+
+Both are wonderful tools, but don't play well together. You got to get the versions just right. Don't have the power to describe these thoroughly atm. Needs more research and a better documentation (or some bug fixes). I guess this is a quite well known problem already.
 
 ## Pagy
 
