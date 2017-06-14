@@ -70,7 +70,7 @@ Once you guide your Java Runtime Engine to use the truststore holding the certif
 
 ## Pagy
 
-[Pähkinärinne](https://en.wikipedia.org/wiki/Pähkinärinne) aka Pägy is a vibrant and beautiful suburb of the city of Vantaa located just in the crossing of Helsinki, Espoo and Vantaa city limits. The name of the suburb probably refers to hazel trees that have crown in the area for who knows how long. Disticntional attribute of the suburb are brick and concrete colored apartment buildings.
+[Pähkinärinne](https://en.wikipedia.org/wiki/Pähkinärinne) aka Pägy is a vibrant and beautiful suburb of the city of Vantaa located just in the crossing of Helsinki, Espoo and Vantaa city limits. The name of the suburb probably refers to hazel trees that have grown in the area for who knows how long. Disticntional attribute of the suburb are brick and concrete colored apartment buildings.
 
 Most of Pägy was built in the seventies, but there is quite a lot of new vivacious movement going on in the area in the form of construction and improvement. Capital area is crowing fast and the need for smaller apartments is imminent. Thus the construction and mapping of new areas to build on is an ongoing movement.
 
@@ -88,6 +88,7 @@ This was a project for literally rainy days. Now the summer has reached us again
 * Periodical search and delete -process to remove orphaned picture files on the bucket
 * Unvalidation of old item listings (let me be forgotten)
 * Privacy Policy
+* More comprehensive protection of the file upload endpoint
 * Different types of item lists on front page
    * Items reported by me
 * Different kind of maps
