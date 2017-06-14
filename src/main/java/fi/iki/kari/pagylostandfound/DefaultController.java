@@ -141,6 +141,7 @@ public class DefaultController {
 				.setMetadata(
 						new HashMap<String, String>() {{
 							put("origFileName", fileName);
+							// TODO: add princ.getName() as metadata
 						}})
 				.setAcl(new ArrayList<>(Arrays.asList(Acl.of(User.ofAllUsers(), Role.READER))))
 				.build();
