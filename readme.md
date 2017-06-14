@@ -2,7 +2,7 @@
 
 This is a demo application for Spring Boot to track lost items. It enabled me to evaluate few cloud services. The idea arose from a discussion in a
 [Facebook group](https://www.facebook.com/groups/235855133202437/permalink/1344056399048966/?comment_id=1344098629044743&comment_tracking=%7B%22tn%22%3A%22R7%22%7D)
-(see below: [Pagy](#Pagy)). Respective person suggesting the idea may add her name here by making a pull request if she so chooses.
+(see below: [Pagy](#pagy)). Respective person suggesting the idea may add her name here by making a pull request if she so chooses.
 
 ## Live demo
 
