@@ -163,12 +163,14 @@ public class DefaultController {
 	
 	@GetMapping("/princ")
 	@ResponseBody
+	// TODO: protect the endpoint for admin only
 	public Principal princ (Principal princ) {
 		return princ;
 	}
 	
 	@GetMapping("/auth")
 	@ResponseBody
+	// TODO: protect the endpoint for admin only
 	public Authentication auth(Authentication auth) {
 		return auth;
 	}
