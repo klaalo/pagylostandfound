@@ -86,7 +86,7 @@ This was a project for literally rainy days. Now the summer has reached us again
 * Implement test automation and CI
 * Implement deployment automation
 * Periodical search and delete -process to remove orphaned picture files on the bucket
-* Unvalidation of old item listings (let me be forgotten)
+* Unvalidation of old item listings (the right to be forgotten)
 * Privacy Policy
 * More comprehensive protection of the file upload endpoint
 * Different types of item lists on front page
