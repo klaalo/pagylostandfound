@@ -85,6 +85,9 @@ This was a project for literally rainy days. Now the summer has reached us again
 * Write unit tests
 * Implement test automation and CI
 * Implement deployment automation
+* Periodical search and delete -process to remove orphaned picture files on the bucket
+* Unvalidation of old item listings (let me be forgotten)
+* Privacy Policy
 * Different types of item lists on front page
    * Items reported by me
 * Different kind of maps
