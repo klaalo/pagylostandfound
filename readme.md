@@ -10,7 +10,7 @@ You can try out a live demo for which availability or currentness is not quarant
 
 ## Relying on cloud services
 
-The application is built to rely cloud services so that it would be easy to maintain and simple to migrate between platforms. Read more about utilised services from [the wiki](#additional-information). In short, they are:
+The application is built to rely cloud services so that it would be easy to maintain and simple to migrate between platforms. Read more about utilised services from [the wiki](//github.com/klaalo/pagylostandfound/wiki/InnovationStory). In short, they are:
 
 * Google Cloud Storage Bucket
 * Google Cloud Load Balancer
