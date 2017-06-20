@@ -2,7 +2,7 @@
 
 This is a demo application for [Spring Boot](https://projects.spring.io/spring-boot/) to track lost items. It enabled me to evaluate few cloud services. The idea arose from a discussion in a
 [Facebook group](https://www.facebook.com/groups/235855133202437/permalink/1344056399048966/?comment_id=1344098629044743&comment_tracking=%7B%22tn%22%3A%22R7%22%7D)
-(see below: [Pagy](#pagy)) when Katri Huhta suggested that people at Pagy could maintain a website of misplaced property.
+(see below: [Pagy](#what-id-pagy)) when Katri Huhta suggested that people at Pagy could maintain a website of misplaced property.
 
 ## Live demo
 
