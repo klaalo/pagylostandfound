@@ -53,7 +53,8 @@ public class DefaultController {
 	public String itemView(@PathVariable Long itemId, Model model,
 			Principal princ) {
 		LostItem item = lostItems.findById(itemId);
-		if (item.isEnabled() || 
+		if (item != null &&
+				item.isEnabled() || 
 				(princ != null && item.getCreatorFbId().equals(princ.getName()))) {
 			model.addAttribute("item", item);
 			return "itemView";
