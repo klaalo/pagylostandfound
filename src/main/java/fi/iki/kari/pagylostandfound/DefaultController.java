@@ -142,6 +142,7 @@ public class DefaultController {
 				.setMetadata(
 						new HashMap<String, String>() {{
 							put("origFileName", fileName);
+							// TODO: add princ.getName() as metadata
 						}})
 				.setAcl(new ArrayList<>(Arrays.asList(Acl.of(User.ofAllUsers(), Role.READER))))
 				.build();
@@ -163,12 +164,14 @@ public class DefaultController {
 	
 	@GetMapping("/princ")
 	@ResponseBody
+	// TODO: protect the endpoint for admin only
 	public Principal princ (Principal princ) {
 		return princ;
 	}
 	
 	@GetMapping("/auth")
 	@ResponseBody
+	// TODO: protect the endpoint for admin only
 	public Authentication auth(Authentication auth) {
 		return auth;
 	}

@@ -2,7 +2,7 @@
 
 This is a demo application for Spring Boot to track lost items. It enabled me to evaluate few cloud services. The idea arose from a discussion in a
 [Facebook group](https://www.facebook.com/groups/235855133202437/permalink/1344056399048966/?comment_id=1344098629044743&comment_tracking=%7B%22tn%22%3A%22R7%22%7D)
-(see below: [Pagy](#pagy)). Respective person suggesting the idea may add her name here by making a pull request if she so chooses.
+(see below: [Pagy](#pagy)) when Katri Huhta suggested that people at Pagy could maintain a website of misplaced property.
 
 ## Live demo
 
@@ -67,10 +67,13 @@ It's only safe to use cloud sql service if the traffic in between the server and
 
 Once you guide your Java Runtime Engine to use the truststore holding the certificate for the database server, the JRE doesn't trust any other service if it is not presented in the truststore. On resolution is to add the database service certificate to your cacerts.jks. I'm not so keen on this, but have heard that there might be a better solution in just placing trusted certificates in a directory and hashing them somwhow. Need to research this more. I'm quite sure internet has plenty of information on this.
 
+### Spring Security and Thymeleaf
+
+Both are wonderful tools, but don't play well together. You got to get the versions just right. Don't have the power to describe these thoroughly atm. Needs more research and a better documentation (or some bug fixes). I guess this is a quite well known problem already.
 
 ## Pagy
 
-[Pähkinärinne](https://en.wikipedia.org/wiki/Pähkinärinne) aka Pägy is a vibrant and beautiful suburb of the city of Vantaa located just in the crossing of Helsinki, Espoo and Vantaa city limits. The name of the suburb probably refers to hazel trees that have crown in the area for who knows how long. Disticntional attribute of the suburb are brick and concrete colored apartment buildings.
+[Pähkinärinne](https://en.wikipedia.org/wiki/Pähkinärinne) aka Pägy is a vibrant and beautiful suburb of the city of Vantaa located just in the crossing of Helsinki, Espoo and Vantaa city limits. The name of the suburb probably refers to hazel trees that have grown in the area for who knows how long. Disticntional attribute of the suburb are brick and concrete colored apartment buildings.
 
 Most of Pägy was built in the seventies, but there is quite a lot of new vivacious movement going on in the area in the form of construction and improvement. Capital area is crowing fast and the need for smaller apartments is imminent. Thus the construction and mapping of new areas to build on is an ongoing movement.
 
@@ -78,6 +81,8 @@ Most of Pägy was built in the seventies, but there is quite a lot of new vivaci
 
 This was a project for literally rainy days. Now the summer has reached us again so don't hold your breath in waiting for FREs.
 
+* Facebook Share-button
+* Like-button
 * Show item type in the list on the front page
 * Show item date in the list on the front page
 * Remove hardcoded elements from the templates and source code
@@ -85,6 +90,10 @@ This was a project for literally rainy days. Now the summer has reached us again
 * Write unit tests
 * Implement test automation and CI
 * Implement deployment automation
+* Periodical search and delete -process to remove orphaned picture files on the bucket
+* Unvalidation of old item listings (the right to be forgotten)
+* Privacy Policy
+* More comprehensive protection of the file upload endpoint
 * Different types of item lists on front page
    * Items reported by me
 * Different kind of maps
