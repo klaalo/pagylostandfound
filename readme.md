@@ -22,7 +22,7 @@ The application is built to rely cloud services so that it would be easy to main
 
 ## Additional information
 
-Read original sotry about the innovation on wiki: [InnovationStory](//github.com/klaalo/pagylostandfound/wiki/InnovationStory)
+Read the original story about the innovation on wiki: [InnovationStory](//github.com/klaalo/pagylostandfound/wiki/InnovationStory)
 
 ## What is Pagy?
 
