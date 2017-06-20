@@ -31,16 +31,16 @@
 				
 			<a 
 				th:href="@{item/{itemId}/view(itemId=${item.id})}"
-				th:unless="${#strings.isEmpty(@imageUrlService.getUrl(item))}">
+				th:unless="${#strings.isEmpty(item.fileName)}">
 
-			<img th:src="${@imageUrlService.getUrl(item)}" 
+			<img th:src="${'https://pagypics.kari.iki.fi/' + item.fileName}" 
 				class="img-responsive center-block"
 				style="height: 75px;"
 			 />
 			 
 			 </a>
 
-			<p th:if="${#strings.isEmpty(@imageUrlService.getUrl(item))}"
+			<p th:if="${#strings.isEmpty(item.fileName)}"
 			>
 				<a 
 				th:href="@{item/{itemId}/view(itemId=${item.id})}">

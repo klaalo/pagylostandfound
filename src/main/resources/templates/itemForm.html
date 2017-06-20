@@ -7,7 +7,9 @@
 
     <meta name="description" 
           content="Sovellus kadonneiden ja löytyneiden esineiden palauttamiseksi omistajilleen" />
-    <meta property="fb:app_id" content="145477019335493" />
+    <meta property="fb:app_id"
+    	th:attr="content=${@environment.getProperty('security.oauth2.client.clientId')}" 
+     />
     
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
@@ -190,13 +192,15 @@
 		<form 	class='dropzone'
 				th:action='@{/imageUpload}'
 				method='POST'
-			 	th:unless="${imageUrl}"
+			 	th:if="${#strings.isEmpty(itemForm.fileName)}"
 			 	id='fileInputZone'
 			 	style='height: 18em;'
 		>
 			<input type='file' name='file' style='display: none;'/>
 		</form>
-		<img th:if="${imageUrl}" th:src="${imageUrl}" class='img-responsive' 
+		<img th:unless="${#strings.isEmpty(itemForm.fileName)}"
+			 th:src="${'https://pagypics.kari.iki.fi/' + itemForm.fileName}"
+			 class='img-responsive' 
 			style='max-height: 18em;'/>
 	</div>
 	</div>

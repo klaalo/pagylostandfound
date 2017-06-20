@@ -8,15 +8,18 @@
 
 	    <meta name="description" 
 	          content="Sovellus kadonneiden ja löytyneiden esineiden palauttamiseksi omistajilleen" />
-	    <meta property="fb:app_id" content="145477019335493" />
+	    <meta property="fb:app_id" 
+	    	th:attr="content=${@environment.getProperty('security.oauth2.client.clientId')}"
+	    />
 	    
 	    <meta property="og:url"                th:attr="content=@{https://pagylostandfound.kari.iki.fi/item/{itemId}/view(itemId=${item.id})}" />
 		<meta property="og:type"               content="article" />
 		<meta property="og:title"              th:attr="content=${item.itemName}" />
-		<meta property="og:description"        th:attr="content=${#strings.substring(item.itemDescr, 0, 120)}" />
+		<meta property="og:description"
+			th:attr="content=${#strings.length(item.itemDescr) > 120 ? #strings.substring(item.itemDescr, 0, 120) : item.itemDescr}" />
 		<meta property="og:image"
-			th:unless="${#strings.isEmpty(@imageUrlService.getUrl(item))}"              
-			th:attr="content=${@imageUrlService.getUrl(item)}" />
+			th:unless="${#strings.isEmpty(item.fileName)}"              
+			th:attr="content=${'https://pagypics.kari.iki.fi/' + item.fileName}" />
 	
 		<meta property="og:locale"			content="fi_FI" />	    
     
@@ -108,8 +111,8 @@
 			</div>
 			<div class='col-md-6' >
 				<img 
-					th:unless="${#strings.isEmpty(@imageUrlService.getUrl(item))}" 
-					th:src="${@imageUrlService.getUrl(item)}"
+					th:unless="${#strings.isEmpty(item.fileName)}" 
+					th:src="${'https://pagypics.kari.iki.fi/' + item.fileName}"
 					class='img-responsive'
 					style='max-height: 18em;'
 				 />

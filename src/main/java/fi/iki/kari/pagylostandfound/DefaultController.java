@@ -40,9 +40,6 @@ public class DefaultController {
 	@Autowired
 	private LostItemRepository lostItems;
 	
-	@Autowired
-	ImageUrlService urlService;
-
 	@GetMapping("/")
 	public String front(Model model) {
 		model.addAttribute("itemList", lostItems.findFirst10ByEnabledIsTrueOrderByCreatedDesc());
@@ -78,12 +75,7 @@ public class DefaultController {
 			item.setContactDetail("https://facebook.com/" + princ.getName());
 			model.addAttribute("itemForm", item);
 		} else {
-			
-			String url = urlService.getUrl(item);
-			if (!url.isEmpty()) {
-				model.addAttribute("imageUrl", url);
-			}
-			
+						
 			model.addAttribute("itemForm", item);
 		}
 		return "itemForm";
@@ -136,7 +128,7 @@ public class DefaultController {
 		String cloudFile = UUID.randomUUID().toString() + postfix;
 		
 		Storage storage = StorageOptions.getDefaultInstance().getService();
-		BlobInfo blobInfo = BlobInfo.newBuilder("pagy-lostitems-images", cloudFile)
+		BlobInfo blobInfo = BlobInfo.newBuilder("pagypics.kari.iki.fi", cloudFile)
 				.setContentDisposition("inline")
 				.setContentType(file.getContentType())
 				.setMetadata(
