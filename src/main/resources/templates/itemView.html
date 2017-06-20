@@ -1,6 +1,40 @@
 <!DOCTYPE html>
 <html  xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="itemForm :: head"></head>
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Pägy Lost&amp;Found</title>
+
+	    <meta name="description" 
+	          content="Sovellus kadonneiden ja löytyneiden esineiden palauttamiseksi omistajilleen" />
+	    <meta property="fb:app_id" content="145477019335493" />
+	    
+	    <meta property="og:url"                th:attr="content=@{https://pagylostandfound.kari.iki.fi/item/{itemId}/view(itemId=${item.id})}" />
+		<meta property="og:type"               content="article" />
+		<meta property="og:title"              th:attr="content=${item.itemName}" />
+		<meta property="og:description"        th:attr="content=${#strings.substring(item.itemDescr, 0, 120)}" />
+		<meta property="og:image"
+			th:unless="${#strings.isEmpty(@imageUrlService.getUrl(item))}"              
+			th:attr="content=${@imageUrlService.getUrl(item)}" />
+	
+		<meta property="og:locale"			content="fi_FI" />	    
+    
+	    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	    <script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.0.1/min/dropzone.min.js'></script>
+	    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.0.1/min/basic.min.css' />
+	    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.0.1/min/dropzone.min.css' />
+	
+		<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet" />
+		<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+	
+		<style th:replace="itemForm :: style"></style>
+
+    </head>
     <body>
 
 <div class="container">
@@ -82,8 +116,19 @@
 			</div>
 		</div>
 		
+		<div class='col-md-12'>
+		<div class="fb-like" 
+    		th:attr="data-href=@{https://pagylostandfound.kari.iki.fi/item/{itemId}/view(itemId=${item.id})}" 
+    		data-layout="button" 
+    		data-action="like" 
+    		data-sixe="small"
+    		data-show-faces="true"
+    		data-share="true">
+   		</div>
+		<div class='col-md-12'>
 		<div class="fb-comments" th:attr="data-href=@{https://pagylostandfound.kari.iki.fi/item/{itemId}/view(itemId=${item.id})}" data-numposts="5"></div>
-        
+		</div>
+		</div>        
 </div>
 
 

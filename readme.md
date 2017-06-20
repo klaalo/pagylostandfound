@@ -81,8 +81,8 @@ Most of Pägy was built in the seventies, but there is quite a lot of new vivaci
 
 This was a project for literally rainy days. Now the summer has reached us again so don't hold your breath in waiting for FREs.
 
-* Facebook Share-button
-* Like-button
+* ~~Facebook Share-button~~
+* ~~Like-button~~
 * Show item type in the list on the front page
 * Show item date in the list on the front page
 * Remove hardcoded elements from the templates and source code
