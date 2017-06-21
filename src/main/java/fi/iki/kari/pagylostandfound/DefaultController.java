@@ -167,5 +167,5 @@ public class DefaultController {
 	public Authentication auth(Authentication auth) {
 		return auth;
 	}
-
+	
 }

@@ -28,7 +28,7 @@
 	
 		<div class='col-md-2 col-xs-2'
 			style="border-top: 1px dotted gray; padding: 5px;">
-				
+			
 			<a 
 				th:href="@{item/{itemId}/view(itemId=${item.id})}"
 				th:unless="${#strings.isEmpty(item.fileName)}">
@@ -39,26 +39,35 @@
 			 />
 			 
 			 </a>
-
-			<p th:if="${#strings.isEmpty(item.fileName)}"
-			>
-				<a 
-				th:href="@{item/{itemId}/view(itemId=${item.id})}">
-				<span class="glyphicon glyphicon-ban-circle" aria-hidden="true"
-					style="font-size: 2em;"></span>
-				</a>
-			</p>
-			
-			
 			
 		</div>
 
-		<div class='col-md-9 col-xs-8' style="border-top: 1px dotted gray;">
+		<div class='col-md-9 col-xs-8' 
+			style="border-top: 1px dotted gray; height: 75px;">
+			<div class='row'>
+			<div class='col-md-4'>
+			<p th:text="${#temporals.format(item.created, 'dd.M.YYYY HH:mm')}"></p>
+			</div>
+			<div class='col-md-5'>
+				<input 	type="checkbox"
+						class='form-control'
+						data-toggle='toggle'
+						data-on='Kadonnut'
+						data-off='Löytynyt'
+						th:checked='${item.type}'
+						disabled='true'
+						/>
+			</div>
+			</div>
+			<div class='row'>
+			<div class='col-md-12'>
 			<p>
 				<a 
 				th:href="@{item/{itemId}/view(itemId=${item.id})}"
 				th:text="${item.itemName}"></a>
 			</p>
+			</div>
+			</div>
 		</div>
 
 	</div>
