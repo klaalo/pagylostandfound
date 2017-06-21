@@ -8,23 +8,10 @@
 
 	<nav th:replace="itemForm :: nav"></nav>
 	
-	<div class='col-md-8'>
+	<div class='col-md-offset-3 col-md-9 col-xs-12'>
 	<div class='row' th:each="item : ${itemList}" 
 		style='margin-right: 0; margin-left: 0;'
 	>
-	
-		<div class='col-md-1 col-xs-1 text-center'>
-			<a 
-				th:if="${#strings.equals(item.creatorFbId, #authentication.name)}"
-				th:href="@{/item/{itemId}/modify(itemId=${item.id})}"
-			>
-			<span 
-				style='font-size: 1.5em;' 
-				class='glyphicon glyphicon-pencil'
-			>
-			</span>
-			</a>
-		</div>
 	
 		<div class='col-md-2 col-xs-2'
 			style="border-top: 1px dotted gray; padding: 5px;">
@@ -35,20 +22,20 @@
 
 			<img th:src="${'https://pagypics.kari.iki.fi/' + item.fileName}" 
 				class="img-responsive center-block"
-				style="height: 75px;"
+				style="max-height: 75px;"
 			 />
 			 
 			 </a>
 			
 		</div>
 
-		<div class='col-md-9 col-xs-8' 
-			style="border-top: 1px dotted gray; height: 75px;">
+		<div class='col-md-10 col-xs-10' 
+			style="border-top: 1px dotted gray;">
 			<div class='row'>
-			<div class='col-md-4'>
-			<p th:text="${#temporals.format(item.created, 'dd.M.YYYY HH:mm')}"></p>
+			<div class='col-md-5 col-xs-5'>
+				<p th:text="${#temporals.format(item.created, 'dd.M.YYYY HH:mm')}"></p>
 			</div>
-			<div class='col-md-5'>
+			<div class='col-md-3 col-sm-3 col-xs-5'>
 				<input 	type="checkbox"
 						class='form-control'
 						data-toggle='toggle'
@@ -58,18 +45,30 @@
 						disabled='true'
 						/>
 			</div>
+
+			<div class='col-md-1 col-xs-1'>
+				<a 
+					th:if="${#strings.equals(item.creatorFbId, #authentication.name)}"
+					th:href="@{/item/{itemId}/modify(itemId=${item.id})}"
+				>
+				<span 
+					class='glyphicon glyphicon-pencil'
+				>
+				</span>
+				</a>
 			</div>
-			<div class='row'>
-			<div class='col-md-12'>
+
+
+			<div class='col-md-12 col-xs-12'>
 			<p>
 				<a 
 				th:href="@{item/{itemId}/view(itemId=${item.id})}"
 				th:text="${item.itemName}"></a>
 			</p>
 			</div>
-			</div>
 		</div>
-
+		</div>
+		
 	</div>
 	</div>
         
