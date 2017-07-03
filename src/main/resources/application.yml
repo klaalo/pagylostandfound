@@ -10,3 +10,7 @@ security:
       clientAuthenticationScheme: form
     resource:
       userInfoUri: https://graph.facebook.com/me
+
+my:
+  #picBaseUrl: https://pagypics.kari.iki.fi/
+  picBaseUrl: https://storage.googleapis.com/pagypics.kari.iki.fi/

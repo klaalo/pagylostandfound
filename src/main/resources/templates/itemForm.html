@@ -211,7 +211,7 @@
 			<input type='file' name='file' style='display: none;'/>
 		</form>
 		<img th:unless="${#strings.isEmpty(itemForm.fileName)}"
-			 th:src="${'https://pagypics.kari.iki.fi/' + itemForm.fileName}"
+			 th:src="${@environment.getProperty('my.picBaseUrl') + itemForm.fileName}"
 			 class='img-responsive' 
 			style='max-height: 18em;'/>
 	</div>

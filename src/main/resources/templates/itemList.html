@@ -20,7 +20,7 @@
 				th:href="@{item/{itemId}/view(itemId=${item.id})}"
 				th:unless="${#strings.isEmpty(item.fileName)}">
 
-			<img th:src="${'https://pagypics.kari.iki.fi/' + item.fileName}" 
+			<img th:src="${@environment.getProperty('my.picBaseUrl') + item.fileName}" 
 				class="img-responsive center-block"
 				style="max-height: 75px;"
 			 />
