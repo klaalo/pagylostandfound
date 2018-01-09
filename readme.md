@@ -4,10 +4,6 @@ This is a demo application for [Spring Boot](https://projects.spring.io/spring-b
 [Facebook group](https://www.facebook.com/groups/235855133202437/permalink/1344056399048966/?comment_id=1344098629044743&comment_tracking=%7B%22tn%22%3A%22R7%22%7D)
 (see below: [Pagy](#what-is-pagy)) when Katri Huhta suggested that people at Pagy could maintain a website of misplaced property.
 
-## Live demo
-
-You can try out a live demo for which availability or currentness is not quaranteed. See: <https://pagylostandfound.kari.iki.fi/>
-
 ## Relying on cloud services
 
 The application is built to rely cloud services so that it would be easy to maintain and simple to migrate between platforms. Read more about utilised services from [the wiki](//github.com/klaalo/pagylostandfound/wiki/InnovationStory). In short, they are:
